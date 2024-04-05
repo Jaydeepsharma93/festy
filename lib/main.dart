@@ -1,4 +1,5 @@
 import 'package:festy/view/screen/Home.dart';
+import 'package:festy/view/screen/editpost.dart';
 import 'package:festy/view/screen/post.dart';
 import 'package:festy/view/screen/splase.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         '/' : (context) => Spl(),
         '/home' : (context) => HomeScreen(),
         '/post' : (context) => Post(),
+        '/edit' : (context) => EditPost()
       },
     );
   }

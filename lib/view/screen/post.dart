@@ -7,7 +7,9 @@ class Post extends StatefulWidget {
   @override
   State<Post> createState() => _PostState();
 }
+
 int imgIndex = 0;
+
 class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
@@ -26,13 +28,13 @@ class _PostState extends State<Post> {
         centerTitle: true,
       ),
       body: Container(
-          alignment: Alignment.center,
-          height: height,
-          width: width,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("aasets/img/bg/bg4.jpg"), fit: BoxFit.cover)),
-          // child: buildListView(height),
+        alignment: Alignment.center,
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("aasets/img/bg/bg4.jpg"), fit: BoxFit.cover)),
+        // child: buildListView(height),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
@@ -51,24 +53,31 @@ class _PostState extends State<Post> {
                             spreadRadius: 4,
                             offset: Offset(6, 8))
                       ],
-                    image: DecorationImage(
-                      image: AssetImage(festlist[imgIndex]['images'][0]),
-                       fit: BoxFit.cover
-                    )
-                  ),
+                      image: DecorationImage(
+                          image: AssetImage(festlist[imgIndex]['images'][0]),
+                          fit: BoxFit.cover)),
                 ),
               ),
               SizedBox(height: 30),
               Container(
-                decoration:BoxDecoration(
-                  color: Colors.pink.shade200,
-                  borderRadius: BorderRadius.circular(15)
-                ),
+                decoration: BoxDecoration(
+                    color: Colors.pink.shade200,
+                    borderRadius: BorderRadius.circular(15)),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100,vertical: 15),
-                  child: Text('Edit Template',style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black54, fontSize: 30
-                  ),),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 100, vertical: 15),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/edit');
+                      },
+                      child: Text(
+                        'Edit Template',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54,
+                            fontSize: 30),
+                      ),
+                    )
                 ),
               )
             ],
